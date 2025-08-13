@@ -1,0 +1,35 @@
+from bs4 import BeautifulSoup
+import requests
+import re
+
+#colophony = ['']
+example = "water"
+
+url = 'https://www.seventhgeneration.com/liquid-laundry-detergent-free-clear'
+
+#requests sends HTTP GET request to URL 
+webpage = requests.get(url)
+soup = BeautifulSoup(webpage.text, features="html.parser")
+
+#possibly filter based on content where ID = 'ingredients?
+# result = soup.find_all(id = 'ingredients')
+#result = soup.find_all(string = lambda text: "sodium citrate" in text.lower())
+
+# result = soup.find(string = re.compile("water"))
+
+# print(result)
+
+
+# for string in soup.stripped_strings:
+#     updated_list.append(repr(string))
+#     #print(repr(string))
+
+# for word in example:
+#     if word in updated_list:
+#         print("Found: " + word)
+    
+#     else:
+#         print("you're good!!")
+
+# print( set(updated_list.intersection(example) ))
+
