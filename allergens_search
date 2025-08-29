@@ -2,34 +2,27 @@ from bs4 import BeautifulSoup
 import requests
 import re
 
-#colophony = ['']
-example = "water"
 
-url = 'https://www.seventhgeneration.com/liquid-laundry-detergent-free-clear'
+allergens = [ ]   #string list of all allergens to search webpage for
+
+url = ' '  #replace target URL
+
+allergen_length = len(allergens)
 
 #requests sends HTTP GET request to URL 
 webpage = requests.get(url)
 soup = BeautifulSoup(webpage.text, features="html.parser")
 
-#possibly filter based on content where ID = 'ingredients?
-# result = soup.find_all(id = 'ingredients')
-#result = soup.find_all(string = lambda text: "sodium citrate" in text.lower())
+#temp = soup.get_text()
 
-# result = soup.find(string = re.compile("water"))
+#print(temp)
 
-# print(result)
-
-
-# for string in soup.stripped_strings:
-#     updated_list.append(repr(string))
-#     #print(repr(string))
-
-# for word in example:
-#     if word in updated_list:
-#         print("Found: " + word)
-    
-#     else:
-#         print("you're good!!")
-
-# print( set(updated_list.intersection(example) ))
-
+for word in example:
+    allergen_length -= 1
+    if word in temp.lower():
+        print ("Found: " + word)
+        break
+        
+    elif (allergen_length == 0 ):
+        
+        print("You're good!")
